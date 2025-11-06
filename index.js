@@ -17,10 +17,10 @@ const importedModuleForInfoUpdate= require('./personalInfoUpdate');
 const importedFromContactUs= require('./contactUs');
 const importedmodulefromPasswordChange= require('./passwordchange');
 const pool = new Pool({
-    user: 'postgres',    // Database user
-    host: 'localhost',             // Database host (or remote IP)
-    database: 'postgres', // Database name
-    password: '11cmortarman',     // Database password
+    user: 'elder',    // Database user
+    host: 'dpg-d46din2li9vc73fc76a0-a.oregon-postgres.render.com',             // Database host (or remote IP)
+    database: 'postgresone', // Database name
+    password: 'kwimYjn1QxcbvEcKHXP7iMrFMjH3YZvN',     // Database password
     port: 5432,
 });
 
