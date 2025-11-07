@@ -2,6 +2,11 @@ const bcrypt = require('bcrypt');
 const { response } = require('express');
 const Pool= require('pg').Pool;
 const pool = new Pool({
+    connectionString: process.env.DATABASE_URL,
+  ssl: {
+    require: true,              // ✅ force SSL
+    rejectUnauthorized: false,  // ✅ allow Render’s self-signed certificate
+  },
     user: 'elder',    // Database user
     host: 'dpg-d46din2li9vc73fc76a0-a.oregon-postgres.render.com',             // Database host (or remote IP)
     database: 'postgresone', // Database name
