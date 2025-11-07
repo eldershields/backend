@@ -3,7 +3,6 @@ const {Pool}= require('pg');
 const bcrypt= require('bcrypt');
 const passport = require('passport');
 
-const { Pool } = require("pg");
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,  // Render gives this

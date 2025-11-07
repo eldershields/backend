@@ -16,7 +16,7 @@ const importedModuleForPasswordChangeFromDashboard= require('./PasswordchangeFro
 const importedModuleForInfoUpdate= require('./personalInfoUpdate');
 const importedFromContactUs= require('./contactUs');
 const importedmodulefromPasswordChange= require('./passwordchange');
-const { Pool } = require("pg");
+
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,  // Render gives this
