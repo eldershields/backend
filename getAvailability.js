@@ -1,13 +1,13 @@
 const express= require('express');
 const {Pool}= require('pg');
 
+const { Pool } = require("pg");
+
 const pool = new Pool({
-    user: 'elder',    // Database user
-    host: 'dpg-d46din2li9vc73fc76a0-a.oregon-postgres.render.com',             // Database host (or remote IP)
-    database: 'postgresone', // Database name
-    password: 'kwimYjn1QxcbvEcKHXP7iMrFMjH3YZvN',     // Database password
-    port: 5432,
+  connectionString: process.env.DATABASE_URL,  // Render gives this
+  ssl: { require: true, rejectUnauthorized: false }, // Required on Render
 });
+
 
  async function getAvailability(req, res){
     if(req.isAuthenticated()){
