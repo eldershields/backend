@@ -97,8 +97,8 @@ app.post('/registration', importedModule.register);
 
 
 app.post('/login', passport.authenticate('local', {
-    successRedirect: 'http://localhost:3000/dashboard',
-    failureRedirect: 'http://localhost:3000/',
+    successRedirect: 'https://client-0mhf.onrender.com/dashboard',
+    failureRedirect: 'https://client-0mhf.onrender.com',
 })); 
 
 app.post('/availability', importedModuleForAvailability.getAvailability);
@@ -123,7 +123,7 @@ app.get('/dashboard', async(req, res)=>{
     }
 
     else{
-        res.redirect('http://localhost:3000/login');
+        res.redirect('https://client-0mhf.onrender.com');
     }
    
 
