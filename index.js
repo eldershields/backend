@@ -96,10 +96,12 @@ passport.deserializeUser(async(id, done)=>{
 app.post('/registration', importedModule.register);
 
 
-app.post('/login', passport.authenticate('local', {
-    successRedirect: 'https://client-0mhf.onrender.com/dashboard',
-    failureRedirect: 'https://client-0mhf.onrender.com',
-})); 
+app.post('/login', passport.authenticate('local'), (req, res)=>{
+    if(req.isAuthenticated){
+        res.json({success:"login successful"});
+    }
+    res.redirect('https://client-0mhf.onrender.com')
+}); 
 
 app.post('/availability', importedModuleForAvailability.getAvailability);
 
