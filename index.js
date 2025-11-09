@@ -29,7 +29,7 @@ const pool = new Pool({
 
 app.use(cors(
     {
-        origin: 'https://client-0mhf.onrender.com',
+        origin: ['https://client-0mhf.onrender.com','https://backend-rvpe.onrender.com'],
         credentials: true,
     }
 ));
