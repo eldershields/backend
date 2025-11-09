@@ -104,7 +104,9 @@ app.post('/login', passport.authenticate('local'), (req, res)=>{
     if(req.isAuthenticated){
         res.json({success:"login successful"});
     }
-    res.redirect('https://client-0mhf.onrender.com')
+    else{
+        res.json({message: "Please login"})
+    }
 }); 
 
 app.post('/availability', importedModuleForAvailability.getAvailability);
