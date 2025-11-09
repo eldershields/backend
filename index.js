@@ -18,21 +18,24 @@ const importedFromContactUs= require('./contactUs');
 const importedmodulefromPasswordChange= require('./passwordchange');
 
 
+
+app.set('trust proxy', 1);
+
+app.use(cors(
+    {
+        origin: 'https://client-0mhf.onrender.com',
+        credentials: true,
+    }
+));
+
+
+
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,  // Render gives this
   ssl: { require: true, rejectUnauthorized: false }, // Required on Render
 });
 
 
-
-
-
-app.use(cors(
-    {
-        origin: ['https://client-0mhf.onrender.com','https://backend-rvpe.onrender.com'],
-        credentials: true,
-    }
-));
 
 
 app.use(bodyParser.json());
@@ -48,7 +51,8 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     cookie: {
-        secure: false,  // If using HTTP, set to false; if using HTTPS, set to true
+        sameSite: 'none',
+        secure: true,  // If using HTTP, set to false; if using HTTPS, set to true
         httpOnly: true,  // This ensures cookies are only accessible through HTTP requests, not JavaScript
         maxAge: 24 * 60 * 60 * 1000  // Session expires after 1 day
     }
